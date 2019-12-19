@@ -14,9 +14,11 @@ Complete instructions on importing table data can be found here:
 
 The dataset has three files: 
 
-  - [MasterCourseFile.csv](../../_static/cis-54/MasterCourseFile.csv) - The list of all Cabrillo courses. 
-  - [ProgramFile.csv](../../_static/cis-54/ProgramFile.csv) - The list of Cabrillo programs. (A program is a degree or certificate.)
-  - [ProgramCourseFile.csv](../../_static/cis-54/ProgramCourseFile.csv) - The intersection table that maps courses into programs. 
+```eval_rst
+- :download:`MasterCourseFile.csv <MasterCourseFile.csv>` - The list of all Cabrillo courses.
+- :download:`ProgramFile.csv <ProgramFile.csv>` - The list of Cabrillo programs. (A program is a degree or certificate.)
+- :download:`ProgramCoursefile.csv <ProgramCourseFile.csv>` - The intersection table that maps courses into programs.
+```
   
 The Excel files have been slightly modified to remove problems that will break the CSV import. I have deleted extra rows and columns that make the formatting nice but mess up imports. 
 

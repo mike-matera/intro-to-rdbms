@@ -72,7 +72,7 @@ CREATE TABLE oscar (year INT NOT NULL, category VARCHAR(45) NOT NULL, movie VARC
 INSERT INTO oscar VALUES (1981, 'Best Actor', 'Raging Bull', 1);
 INSERT INTO oscar VALUES (1975, 'Best Suporting Actor', 'The Godfather: Part II', 1);
 INSERT INTO oscar VALUES (2012, 'Best Actress', 'The Iron Lady', 2);
-INSERT INTO oscar VALUES (1983, 'Best Actress', 'Sophie\'s Choice', 2);
+INSERT INTO oscar VALUES (1983, 'Best Actress', 'Sophie''s Choice', 2);
 INSERT INTO oscar VALUES (1980, 'Best Supporting Actress', 'Kramer vs. Kramer', 2);
 ```
 
