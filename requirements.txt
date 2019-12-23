@@ -10,3 +10,7 @@ matplotlib
 scipy
 seaborn
 ipywidgets
+sql
+sqlalchemy
+ipython-sql
+
