@@ -1,15 +1,8 @@
 """
-CIS-54 Course SQL Questions
+# Pet Joins
 """
 
-import sys
-import inspect 
-
-from IPython.display import HTML, Markdown, display
-import sqlite3
-import pandas as pd
-
-conn = sqlite3.connect('../Databases/pets.sqlite3')
+db_url = ('sqlite:///pets.sqlite3')
 
 class Question01:
   """
@@ -31,7 +24,6 @@ select
   breed.minweight, breed.maxweight, breed.averagelifeexpectancy
 from pet_3 join breed 
 on pet_3.petbreed = breed.breedname
-limit 5;
 """
 
 class Question02:
@@ -46,7 +38,6 @@ select
   breed.minweight, breed.maxweight, breed.averagelifeexpectancy
 from pet_3 left join breed 
 on pet_3.petbreed = breed.breedname
-limit 5;
 """
 
 class Question03:
@@ -62,7 +53,6 @@ select
   (breed.minweight + breed.maxweight) / 2 as `Average Weight`
 from pet_3 join breed 
 on pet_3.petbreed = breed.breedname
-limit 5;
 """
 
 class Question04:
@@ -79,31 +69,4 @@ select
 from pet_3 join breed 
 on pet_3.petbreed = breed.breedname
 where pet_3.petweight > `Average Weight`
-limit 5;
 """
-
-
-###########################################
-q_num = 0 
-
-def get_question(module, name=None):
-    global q_num
-    if name is None:
-        questions = []
-        for name, member in inspect.getmembers(module):
-            if inspect.isclass(member) and name.startswith('Question'):
-                questions.append(member)
-        question = questions[q_num]
-        q_num += 1
-
-    else:
-        question = getattr(module, name)
-
-    hint = '*This preview is limited to five rows.*'
-    df = pd.read_sql_query(question.answer, conn)
-    
-    return display(Markdown(question.__doc__), df, Markdown(hint))
-
-if __name__ == '__main__':
-    get_question(sys.modules[__name__], 'Question1')
-    

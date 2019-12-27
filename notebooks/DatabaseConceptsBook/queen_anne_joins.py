@@ -1,15 +1,8 @@
 """
-CIS-54 Course SQL Questions
+# Queen Anne Joins
 """
 
-import sys
-import inspect 
-
-from IPython.display import HTML, Markdown, display
-import sqlite3
-import pandas as pd
-
-conn = sqlite3.connect('../Databases/queen_anne.sqlite3')
+db_url = 'sqlite:///queen_anne.sqlite3'
 
 class Question01:
   """
@@ -22,7 +15,7 @@ Join the table ITEM and VENDOR so that all items are listed with the following c
   - Vendor Company Name
   
 """
-  answer = "select item.itemdescription, item.itemcost, vendor.companyname from item, vendor where item.vendorid = vendor.vendorid limit 5"
+  answer = "select item.itemdescription, item.itemcost, vendor.companyname from item, vendor where item.vendorid = vendor.vendorid"
 
 class Question02:
   """
@@ -30,7 +23,7 @@ class Question02:
 
 Update the last query to only include vendors that have a non-NULL company name. 
 """
-  answer = "select item.itemdescription, item.itemcost, vendor.companyname from item, vendor where item.vendorid = vendor.vendorid and vendor.companyname is not NULL limit 5"
+  answer = "select item.itemdescription, item.itemcost, vendor.companyname from item, vendor where item.vendorid = vendor.vendorid and vendor.companyname is not NULL"
 
 class Question03:
   """
@@ -38,7 +31,7 @@ class Question03:
 
 Write a query that lists all sales with the name of the salesperson that made them. 
 """
-  answer = "select * from sale, employee where sale.employeeid = employee.employeeid limit 5"
+  answer = "select * from sale, employee where sale.employeeid = employee.employeeid"
 
 class Question04:
   """
@@ -46,7 +39,7 @@ class Question04:
 
 Update the last query to show the total sales by each employee.
 """
-  answer = "select FirstName, LastName, sum(Total) as Total from sale, employee where sale.employeeid = employee.employeeid group by FirstName, LastName limit 5"
+  answer = "select FirstName, LastName, sum(Total) as Total from sale, employee where sale.employeeid = employee.employeeid group by FirstName, LastName"
 
 class Question05:
   """
@@ -60,7 +53,6 @@ from customer, sale
 where customer.customerid = sale.customerid
 group by FirstName, LastName
 order by total desc
-limit 5;
 """
 
 class Question06:
@@ -69,7 +61,7 @@ class Question06:
 
 Write a query that shows all **unsold** items. 
 """
-  answer = """select * from item where itemid not in (select itemid from sale_item) limit 5;"""
+  answer = """select * from item where itemid not in (select itemid from sale_item)"""
   
 class Question07:
   """
@@ -81,7 +73,6 @@ Write a query that lists the customers who are also vendors.
 select firstname, lastname from customer
 intersect 
 select contactfirstname, contactlastname from vendor
-limit 5;
 """
 
 class Question08:
@@ -96,7 +87,6 @@ union
 select contactfirstname, contactlastname, email from vendor 
 union
 select firstname, lastname, email from customer 
-limit 5;
 """
 
 class Question09:
@@ -121,7 +111,6 @@ where sale.employeeid = employee.employeeid
   and sale.customerid = customer.customerid 
   and sale.saleid = sale_item.saleid 
   and sale_item.itemid = item.itemid 
-  limit 5
 ;  
 """
 
@@ -142,32 +131,5 @@ from employee, customer, sale
 where employee.employeeid = sale.employeeid 
   and customer.customerid = sale.customerid
 group by employee.employeeid, customer.customerid
-limit 5
 ;
 """
-
-
-###########################################
-q_num = 0 
-
-def get_question(module, name=None):
-    global q_num
-    if name is None:
-        questions = []
-        for name, member in inspect.getmembers(module):
-            if inspect.isclass(member) and name.startswith('Question'):
-                questions.append(member)
-        question = questions[q_num]
-        q_num += 1
-
-    else:
-        question = getattr(module, name)
-
-    hint = '*This preview is limited to five rows.*'
-    df = pd.read_sql_query(question.answer, conn)
-    
-    return display(Markdown(question.__doc__), df, Markdown(hint))
-
-if __name__ == '__main__':
-    get_question(sys.modules[__name__], 'Question1')
-    
