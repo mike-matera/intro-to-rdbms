@@ -18,19 +18,19 @@ In this part you will create a new schema. Your new schema name must begin with 
 
 Use the Create Schema button shown below: 
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Create%20Schema.png?height=240&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Create%20Schema.png)
 
 That will bring up the create schema tab. Name your schema and apply as shown:
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/Name%20and%20Apply.png?height=240&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/Name%20and%20Apply.png)
 
 MySQL Workbench will show you what SQL is about to execute and ask you to confirm:
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Create%20Schema%20Apply.png?height=387&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Create%20Schema%20Apply.png)
 
 Click Apply. Now you should see your schema on the left hand side of your window: 
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/Schema%20Created.png?height=240&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/Schema%20Created.png)
 
 Double click the name of your schema to select it as the active one. Then select the "New Table" button. This will bring up the new table tab. Your new table should have the following properties: 
 
@@ -43,15 +43,15 @@ Double click the name of your schema to select it as the active one. Then select
 
 You table should look like this: 
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/New%20Table.png?height=240&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/New%20Table.png)
 
 Select apply to create your table and you will see the SQL command that creates your table:
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/Apply%20Table.png?height=387&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1454526758030/home/cis-154/lab-2---your-first-schema/Apply%20Table.png)
 
 Click "Apply". Next you will add values to the table. Pull open the lab2 schema. When you hover over the actor table you will see a set of icons. The right-most icon looks like a table. Select it and it will bring up the table editor as shown below:
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Add%20Actor%20Data.png?height=240&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Add%20Actor%20Data.png)
 
 Add the following people to the actor table as shown in the picture above: 
 
@@ -86,7 +86,7 @@ MySQL workbench can export your schema so you can load it into another DBMS. To 
 
 That will bring up the export dialog as shown:
 
-![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Export%20Lab%202.png?height=240&width=400)
+![](https://sites.google.com/a/lifealgorithmic.com/cabrillo-home/_/rsrc/1513330349177/home/cis-154/lab-2---your-first-schema/Export%20Lab%202.png)
 
 Save your schema in a file called `first_schema_export.sql` and submit your file for credit.
 

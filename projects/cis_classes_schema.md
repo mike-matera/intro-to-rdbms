@@ -4,9 +4,9 @@ This project will help you become familiar with structuring data into tables and
 
 ## The Data
 
-You will use the data from the Cabrillo Spring 19 course schedule:
+You will use the data from the Cabrillo Spring 2020 course schedule:
 
-> [Cabrillo's Spring Schedule](https://www.cabrillo.edu/publications/schedule/spring/fullprintversion.pdf)
+> [Cabrillo's Spring Schedule](https://drive.google.com/file/d/1wHCEg4j_YSKtaWL2hO38Ym_UnBWkWfox/view)
 
 Your database should contain all of the classes in the CIS department. You don't have to enter classes from other departments. You will also need to get information about all of the CIS instructors from Cabrillo's SALSA directory: 
 
