@@ -17,7 +17,7 @@ You will see the new connection dialog shown below:
 Enter the following information:
 
   * **Connection Name**: Killgrave
-  * **Hostname**: `killgrave.ca3hsvz6gvc4.us-west-2.rds.amazonaws.com`
+  * **Hostname**: `killgrave-instance-1.ca3hsvz6gvc4.us-west-2.rds.amazonaws.com`
   * **Username**: Your Cloud9 Username 
   * **Password**: Your Cloud9 Password 
   
