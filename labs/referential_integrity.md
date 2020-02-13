@@ -1,4 +1,4 @@
-# Referential Integrity 
+# Referential Integrity Lab
 
 In this lab you'll use a *foreign key constraint* to have MySQL enforce rules in your database. A foreign key constraint causes MySQL (and other relational DBMSes) to guarantee that rows in one table match rows in another table. In your first schema you entered actors and Oscar wins. What happens if you enter an oscar for an actor that's not in your database? 
 
@@ -93,5 +93,3 @@ After Gary has been added re-run the insert query from the previous step and the
 ## Turn In 
 
 Export your data into a file called `referential_integrity.sql` and submit the file on Canvas. 
-
-

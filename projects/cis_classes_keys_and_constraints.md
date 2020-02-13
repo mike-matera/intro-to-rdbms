@@ -17,7 +17,7 @@ You may or may not have organized your data according to rules like #3. MySQL (a
  
 ## Split Courses and Sections
 
-Your first schema captured all of the spring catalog course data into one table. That was okay last week, but your courses table stores two entities, which will cause modification problems. The table stores information about a course (e.g. title and units) and it stores information about a section (e.g. section number, semester and times). Update your schema to separate courses and sections. 
+Your first schema may have captured all of the spring catalog course data into one table. That was okay last week, but your database stores two entities, courses and sections, which will cause modification problems if you only use one table. Your database should store information about a course (e.g. title and units) and information about a section (e.g. section number, semester and times) in separate tables. Update your schema to separate courses and sections. 
 
 Before you create your new tables consider the following questions? 
 
@@ -36,17 +36,17 @@ Use a foreign key constraint to ensure that all sections have a corresponding co
 
 ## Select your Keys
 
-MySQL forces you to have primary keys. The name is a bit misleading because you can have **multiple** columns as primary keys. These are knows as composite keys. For each of the tables think about the attribute or attributes you will use for a key. Separately you will turn in answers to the following questions:
+MySQL forces you to have primary keys. The name is a bit misleading because you can have **multiple** columns as primary keys. These are knows as *composite keys*. For each table think about the attribute or attributes you will use for a key. Separately, turn in answers to the following questions:
 
   1. What is the key of your Course table? What kind of key is it (e.g. a surrogate key, composite key or a single-value key)
   2. What is the key of your Section table? What kind of key it it? 
   3. What is the key of your Instructor table? What kind of key is it?
   
-You should turn in the answers to these questions in a document called `keys_and_constraints`.
+Turn in the answers to these questions in a document called `keys_and_constraints`.
   
 ## Add Constraints to Section and Instructor
 
-Additionally add a referential integrity constraint between Section and Instructor. The constraint should ensure that the instructor of a section is present in the instructor table. You may have to change your data to make this work. 
+Add a referential integrity constraint between Section and Instructor. The constraint should ensure that the instructor of a section is present in the instructor table. You may have to change your data to make this work. *At least one section is currently being taught by staff*. That's what happens when there is no instructor identified by the time the schedule goes to print. Divise a strategy for handling that in your schema (we'll discuss this next week).
 
 ## Chapter Questions 
 
