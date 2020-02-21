@@ -50,8 +50,8 @@ The oscar table now refers to data that's in the `movie` table. Place a foreign 
 
 You now have an intersection table that satisfies the MVDs:
 
-    ActorName -> MovieTitle
-    MovieTitle -> ActorName
+    ActorName → → MovieTitle
+    MovieTitle → → ActorName
     
 You can query actors and movies with the following SQL. 
 
