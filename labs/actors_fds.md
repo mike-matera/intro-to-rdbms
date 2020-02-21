@@ -27,7 +27,7 @@ Now add another actor to your table:
 
 Intersection tables sometimes have funny names like `actor_has_movie` because they form a bridge between two tables when there's an MVD. In this case we have a better name for our intersection table. We will call it `starring` and the definition should look like this:
 
-starring ( <i><u>ActorID</u></i>, <i><u>Movie</u></i>)
+starring ( <i><u>ActorID</u></i>, <i><u>Movie</u></i> )
 
 > Notice! Both attributes are primary keys **and** foreign keys. 
 

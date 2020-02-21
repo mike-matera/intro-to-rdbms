@@ -37,11 +37,11 @@ Section ( <u>SectionNumber</u>, Room Time, *Course*, *Title* )
 
 Start by listing all of the attributes that you track in your schema. Once you have them listed write out the functional dependencies in the "arrow" form shown in class. If you use surrogate keys include them. Watch out for incorrect FDs that don't use a surrogate key. For example, this FD is correct: 
 
-    InstructorID -> ( InstructorName, InstructorPhone, InstructorTitle ) 
+    InstructorID → ( InstructorName, InstructorPhone, InstructorTitle ) 
 
 This FD is **incorrect** because your schema won't support two "John Smiths":
 
-    InstructorName -> ( InstructorPhone, InstructorTitle ) 
+    InstructorName → ( InstructorPhone, InstructorTitle ) 
 
 List your FDs clearly and verify that every attributes is represented in an FD. **Watch out for multivalued dependencies** there are some in there!
 
@@ -55,5 +55,3 @@ Please turn in the following:
 
   1. A document with your FDs and Tables called `cis_fds.*` (It can't be text because you need underlines and italics.)
   2. You exported database called `cis_fds.sql`
-  
-  
