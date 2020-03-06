@@ -1,11 +1,7 @@
 """
-# First Selects 
+# Beginning Selects 
 
 This assignment will get you started writing select statements in SQL. 
-
-## TODO: Instructions 
-
-Put instructions here.
 """
 
 db_url = "sqlite:///flights.sqlite3"
@@ -174,9 +170,9 @@ class Question19:
     """
 ## 19. Planes to or from LAX
 
-Write a query that shows planes (equipment) that flies to or from LAX.
+Write a query that shows planes (equipment) that flies to or from LAX. Sort the answer. 
 """
-    answer = "select distinct(equipment) from routes where source = 'LAX' or dest = 'LAX'"
+    answer = "select distinct(equipment) from routes where source = 'LAX' or dest = 'LAX' order by equipment"
 
 class Question20:
     """
@@ -186,3 +182,18 @@ Write a query that shows countries that have an airport below sea level.
 """
     answer = "select distinct(country) from airports where altitude < 0"
 
+class Question21:
+    """
+## 21. Rename columns
+
+Rewrite the query in Question 19 to rename the ouput column to `planes`.
+"""
+    answer = "select distinct(equipment) as planes from routes where source = 'LAX' or dest = 'LAX'"
+
+class Question22:
+    """
+## 22. Rename columns
+
+Rewrite the query in Question 20 to rename the output column to `low_country`.
+"""
+    answer = "select distinct(country) as low_country from airports where altitude < 0"
