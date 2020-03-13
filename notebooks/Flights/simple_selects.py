@@ -188,7 +188,7 @@ class Question21:
 
 Rewrite the query in Question 19 to rename the ouput column to `planes`.
 """
-    answer = "select distinct(equipment) as planes from routes where source = 'LAX' or dest = 'LAX'"
+    answer = "select distinct(equipment) as planes from routes where source = 'LAX' or dest = 'LAX' order by equipment"
 
 class Question22:
     """

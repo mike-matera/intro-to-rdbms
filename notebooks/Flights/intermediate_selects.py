@@ -13,7 +13,7 @@ class Question01:
 
 Write a query that lists all airports in order from lowest to highest.
 """
-  answer = "select * from airports order by altitude"
+  answer = "select * from airports order by altitude desc"
 
 class Question02:
   """
@@ -21,7 +21,7 @@ class Question02:
 
 Write a query that lists all airports in order from highest to lowest.
 """
-  answer = "select * from airports order by altitude desc"
+  answer = "select * from airports order by altitude"
 
 class Question03:
   """
