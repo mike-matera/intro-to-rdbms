@@ -15,7 +15,10 @@ Join the table ITEM and VENDOR so that all items are listed with the following c
   - Vendor Company Name
   
 """
-  answer = "select item.itemdescription, item.itemcost, vendor.companyname from item, vendor where item.vendorid = vendor.vendorid"
+  answer = """
+  select item.itemdescription, item.itemcost, vendor.companyname 
+  from item, vendor 
+  where item.vendorid = vendor.vendorid"""
 
 class Question02:
   """
@@ -23,7 +26,11 @@ class Question02:
 
 Update the last query to only include vendors that have a non-NULL company name. 
 """
-  answer = "select item.itemdescription, item.itemcost, vendor.companyname from item, vendor where item.vendorid = vendor.vendorid and vendor.companyname is not NULL"
+  answer = """
+  select item.itemdescription, item.itemcost, vendor.companyname 
+    from item, vendor 
+    where item.vendorid = vendor.vendorid 
+      and vendor.companyname is not NULL """
 
 class Question03:
   """
@@ -31,7 +38,10 @@ class Question03:
 
 Write a query that lists all sales with the name of the salesperson that made them. 
 """
-  answer = "select * from sale, employee where sale.employeeid = employee.employeeid"
+  answer = """
+  select * 
+    from sale, employee 
+    where sale.employeeid = employee.employeeid"""
 
 class Question04:
   """
@@ -39,7 +49,11 @@ class Question04:
 
 Update the last query to show the total sales by each employee.
 """
-  answer = "select FirstName, LastName, sum(Total) as Total from sale, employee where sale.employeeid = employee.employeeid group by FirstName, LastName"
+  answer = """
+  select FirstName, LastName, sum(Total) as Total 
+    from sale, employee 
+    where sale.employeeid = employee.employeeid 
+    group by FirstName, LastName"""
 
 class Question05:
   """
@@ -48,12 +62,11 @@ class Question05:
 Write a query that shows the names of the top customers in terms of sales.  
 """
   answer = """
-select FirstName, LastName, sum(Total) as Total
-from customer, sale 
-where customer.customerid = sale.customerid
-group by FirstName, LastName
-order by total desc
-"""
+  select FirstName, LastName, sum(Total) as Total
+    from customer, sale 
+    where customer.customerid = sale.customerid
+    group by FirstName, LastName
+    order by total desc"""
 
 class Question06:
   """
@@ -103,16 +116,15 @@ Write a join that joins all the tables in the schema and produces and output tab
   - The item's sale price 
 """
   answer = """
-select employee.firstname, employee.lastname, customer.firstname, customer.lastname, 
-  vendor.companyname, vendor.contactlastname, vendor.contactfirstname, 
-  item.itemcost, item.itemprice 
-from employee, customer, vendor, item, sale, sale_item 
-where sale.employeeid = employee.employeeid
-  and sale.customerid = customer.customerid 
-  and sale.saleid = sale_item.saleid 
-  and sale_item.itemid = item.itemid 
-;  
-"""
+  select employee.firstname, employee.lastname, customer.firstname, customer.lastname, 
+      vendor.companyname, vendor.contactlastname, vendor.contactfirstname, 
+      item.itemcost, item.itemprice 
+    from  sale, employee, customer, sale_item, item, vendor 
+    where sale.employeeid = employee.employeeid
+      and sale.customerid = customer.customerid 
+      and sale.saleid = sale_item.saleid 
+      and sale_item.itemid = item.itemid 
+      and item.vendorid = vendor.vendorid;"""
 
 class Question10:
   """
@@ -126,10 +138,8 @@ Write a query that shows salesdata by salesperson and customer. Show the followi
   
 """
   answer = """
-select employee.firstname, employee.lastname, customer.firstname, customer.lastname, sum(Total) as Total
-from employee, customer, sale 
-where employee.employeeid = sale.employeeid 
-  and customer.customerid = sale.customerid
-group by employee.employeeid, customer.customerid
-;
-"""
+  select employee.firstname, employee.lastname, customer.firstname, customer.lastname, sum(Total) as Total
+  from employee, customer, sale 
+  where employee.employeeid = sale.employeeid 
+    and customer.customerid = sale.customerid
+  group by employee.employeeid, customer.customerid;"""
