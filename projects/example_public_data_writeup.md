@@ -26,15 +26,11 @@ A program contains required courses.
 Though I have not yet analyzed the data, these are the functional dependencies that I *expect* will be true of this data. Since CSVs cannot enforce functional dependencies the data may need to be manipulated. 
 
 CourseControlNumber -> (CourseID, TOPCode, CreditStatus, MaximumUnits, MinimumUnits, SAMCode, Date)
-
 ProgramControlNumber -> (Title, TOPCode, AwardType, CreditType, ApprovedDate, Status, InactiveDate) 
-
 ProgramControlNumber ->-> CourseControlNumber
 
 Based on these functional dependencies I will create the following tables: 
 
 course (<u>CourseControlNumber</u>, CourseID, TOPCode, CreditStatus, MaximumUnits, MinimumUnits, SAMCode, Date))
-
 program (<u>ProgramControlNumber</u>, Title, TOPCode, AwardType, CreditType, ApprovedDate, Status, InactiveDate) 
-
 program_course (<u><i>CourseControlNumber</i></u>, <u><i>ProgramControlNumber</i></u>)
