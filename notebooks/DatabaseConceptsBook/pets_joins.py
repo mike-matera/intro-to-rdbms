@@ -1,5 +1,12 @@
 """
 # Pet Joins
+
+The Pets database from the book has data that isn't cleanly related. This is an chance to see how outer joins work. For reference the pet schema is defined below:
+
+BREED ( <u>BreedName</u>, MinWeight, MaxWeight, AverageLifeExpectancy ) 
+<br>PET ( <u>PetID</u>, PetName, PetType, *PetBreed*, PetDOB, *OwnerID* ) 
+<br>PET_3" ( <u>PetID</u>, PetName, PetType, PetBreed, PetDOB, PetWeight, OwnerID )
+<br>PET_OWNER ( <u>OwnerID</u>, OwnerLastName, OwnerFirstName, OwnerPhone, OwnerEmail )
 """
 
 db_url = 'http://www.lifealgorithmic.com/_static/databases/pets.sqlite3'

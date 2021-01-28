@@ -1,5 +1,15 @@
 """
 # Queen Anne Joins
+
+This assignment will help improve your understanding of JOIN queries in SQL. It uses the Queen Anne Curiosity Shop schema that we've used in class. For reference the schema is described below: 
+
+CUSTOMER ( <u>CustomerID</u>, LastName, FirstName, Address, City , State , ZIP, Phone, Email )
+<br>EMPLOYEE ( <u>EmployeeID</u>, LastName, FirstName, Phone, Email )
+<br>ITEM ( <u>ItemID</u>, ItemDescription, PurchaseDate ItemCost, ItemPrice, *VendorID* )
+<br>SALE ( <u>SaleID</u>, *CustomerID*, *EmployeeID*, SaleDate, SubTotal, Tax, Total )
+<br>SALE_ITEM (<u>SaleItemID</u>, <u>*SaleID*</u>, *ItemID*, ItemPrice ) 
+<br>VENDOR ( <u>VendorID</u>, CompanyName, ContactLastName, ContactFirstName, Address, City, State, ZIP, Phone, Fax, Email ) 
+
 """
 
 db_url = 'http://www.lifealgorithmic.com/_static/databases/queen_anne.sqlite3'
