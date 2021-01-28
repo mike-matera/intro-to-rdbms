@@ -2,7 +2,8 @@
 # Pet Joins
 """
 
-db_url = ('sqlite:///pets.sqlite3')
+db_url = 'http://www.lifealgorithmic.com/_static/databases/pets.sqlite3'
+#db_url = ('sqlite:///pets.sqlite3')
 
 class Question01:
   """

@@ -32,8 +32,13 @@ import sqlalchemy as db
 import pandas as pd
 import sys 
 import re 
+import requests
+import shutil
+import tempfile 
+import pathlib 
+import subprocess 
 
-query_limit = 50
+query_limit = 500
 
 setup_md_head = f"""# Setup 
 The code in the cell below connects your notebook to the database. Queries are limited to 
@@ -42,9 +47,13 @@ Each query has a preview of what you should see if you get the correct answer. T
 are also limited to {query_limit} results. 
 """
 
-setup_code = f"""%load_ext sql
+setup_code = f"""import pathlib
+import subprocess 
+if not pathlib.Path('{{filename}}').exists():
+    subprocess.run('wget {{url}}', shell=True)
+%load_ext sql
 %config SqlMagic.autolimit={query_limit}
-%sql {{url}}"""
+%sql sqlite:///{{filename}}"""
 
 setup_md_tail = """*Run this cell before you begin.*"""
 
@@ -79,49 +88,54 @@ def main():
 	mod = import_questions(args.mod)
 	outfile = args.mod + '.ipynb'
 
-	# Get the db_url variable. 
+	# Download the DB 
 	db_url = mod.db_url 
-	engine = db.create_engine(db_url)
+	filename = db_url.split('/')[-1]
+	with tempfile.TemporaryDirectory() as tmpdir:
+		subprocess.run(f"wget {db_url}", shell=True, cwd=tmpdir)
 
-	# Search for questions
-	questions = []
-	for key in sorted(mod.__dict__):
-		if key.startswith('Question') and inspect.isclass(mod.__dict__[key]):
-			questions.append(mod.__dict__[key])
+		# Get the db_url variable. 
+		engine = db.create_engine(f"sqlite:///{tmpdir}/{filename}")
 
-	# Generate the document. 
-	nb = nbformat.v4.new_notebook()
-	nb["metadata"] = {  
-		"kernelspec": {
-   			"display_name": "Python 3",
-   			"language": "python",
-   			"name": "python3",
-		},
-  	}
-	nb.cells.append(nbformat.v4.new_markdown_cell(mod.__doc__))
-	nb.cells.append(nbformat.v4.new_markdown_cell(setup_md_head))
-	nb.cells.append(nbformat.v4.new_code_cell(setup_code.format(url=db_url)))
-	nb.cells.append(nbformat.v4.new_markdown_cell(setup_md_tail))
+		# Search for questions
+		questions = []
+		for key in sorted(mod.__dict__):
+			if key.startswith('Question') and inspect.isclass(mod.__dict__[key]):
+				questions.append(mod.__dict__[key])
 
-	for q in questions:
-		# Question cell
-		nb.cells.append(nbformat.v4.new_markdown_cell(q.__doc__))	
+		# Generate the document. 
+		nb = nbformat.v4.new_notebook()
+		nb["metadata"] = {  
+			"kernelspec": {
+				"display_name": "Python 3",
+				"language": "python",
+				"name": "python3",
+			},
+		}
+		nb.cells.append(nbformat.v4.new_markdown_cell(mod.__doc__))
+		nb.cells.append(nbformat.v4.new_markdown_cell(setup_md_head))
+		nb.cells.append(nbformat.v4.new_code_cell(setup_code.format(url=db_url, filename=filename)))
+		nb.cells.append(nbformat.v4.new_markdown_cell(setup_md_tail))
 
-		# Preview cell
-		query = q.answer.replace(';', '')
-		if re.search(r'(?i)limit', query) is None:
-			query += f' limit {query_limit}'
+		for q in questions:
+			# Question cell
+			nb.cells.append(nbformat.v4.new_markdown_cell(q.__doc__))	
 
-		df = pd.read_sql_query(query, engine)
-		html = df.to_html(index=False, notebook=True, max_rows=5)
-		rows = df.shape[0]
-		nb.cells.append(nbformat.v4.new_markdown_cell(
-			preview_md.format(
-				preview_html = html,
-				rows = rows)))
+			# Preview cell
+			query = q.answer.replace(';', '')
+			if re.search(r'(?i)limit', query) is None:
+				query += f' limit {query_limit}'
 
-		# Answer cell 
-		nb.cells.append(nbformat.v4.new_code_cell("%%sql\n\n"))
+			df = pd.read_sql_query(query, engine)
+			html = df.to_html(index=False, notebook=True, max_rows=10)
+			rows = df.shape[0]
+			nb.cells.append(nbformat.v4.new_markdown_cell(
+				preview_md.format(
+					preview_html = html,
+					rows = rows)))
+
+			# Answer cell 
+			nb.cells.append(nbformat.v4.new_code_cell("%%sql\n\n"))
 
 
 	nbformat.write(nb, outfile)

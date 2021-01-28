@@ -4,7 +4,8 @@
 This assignment will get you started writing select statements in SQL. 
 """
 
-db_url = "sqlite:///flights.sqlite3"
+db_url = 'http://www.lifealgorithmic.com/_static/databases/flights.sqlite3'
+#db_url = "sqlite:///flights.sqlite3"
 
 class Question01:
     """

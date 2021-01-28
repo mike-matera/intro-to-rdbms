@@ -2,7 +2,8 @@
 # Population Queries 
 """
 
-db_url = 'sqlite:///population.sqlite3'
+db_url = 'http://www.lifealgorithmic.com/_static/databases/population.sqlite3'
+#db_url = 'sqlite:///population.sqlite3'
 
 class Question01:
   """
@@ -11,7 +12,7 @@ class Question01:
 Write a query that select all rows from the `population` table.
 
 """
-  answer = "select * from population limit 5;"
+  answer = "select * from population;"
 
 class Question02:
   """

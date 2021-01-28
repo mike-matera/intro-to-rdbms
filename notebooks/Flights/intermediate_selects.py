@@ -5,7 +5,8 @@ This notebook will help give you practice writing selects that use the
 `order by` and `limit` clauses and the `avg()` function. 
 """
 
-db_url = 'sqlite:///flights.sqlite3'
+db_url = 'http://www.lifealgorithmic.com/_static/databases/flights.sqlite3'
+#db_url = 'sqlite:///flights.sqlite3'
 
 class Question01:
   """
