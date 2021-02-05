@@ -1,4 +1,4 @@
-# Project: CIS Course Schema
+# CIS Course Schema, Part 1: Gather Data
 
 This project will help you become familiar with structuring data into tables and lists. The goal of the project is to get you thinking about the data and metadata that's necessary to organize information. 
 
@@ -6,15 +6,32 @@ This project will help you become familiar with structuring data into tables and
 
 You will use the data from the Cabrillo Spring 2020 course schedule:
 
-> [Cabrillo's Spring Schedule](https://drive.google.com/file/d/1wHCEg4j_YSKtaWL2hO38Ym_UnBWkWfox/view)
+> [Cabrillo's Spring Schedule](https://success.cabrillo.edu/Student/Courses/Search?terms=2021SP)
 
-Your database should contain all of the classes in the CIS department. You don't have to enter classes from other departments. You will also need to get information about all of the CIS instructors from Cabrillo's SALSA directory: 
+Your database should contain all of the classes in the CIS department. You don't have to enter classes from other departments. You will also need to get information about all of the CIS instructors from Cabrillo's directory:
 
-> [Cabrillo's SALSA Directory](https://www.cabrillo.edu/salsa/peoplefinder.php?searchType=program&searchValue=18)
+> ![](/static/icon_warning_small.png)
+> [Cabrillo's Faculty & Staff Directory](https://www.cabrillo.edu/directory)
+>
+> **The new directory is quite broken!** 
+>
+> It's not possible to search by department. Please lookup information for the following instructors:
+>
+> - Michael Matera
+> - Irvin Lemus 
+> - Rick Graziani
+> - Terri Oropeza 
+> - Marcelo Nogueira 
+> - Jeffrey Bergamini 
+> - Ed Parrish 
+> - Steve Hodges 
+> - Gary Rollinson
+>
+> Get as much information as you can for each instructor.
 
 ## Creating your Schema 
 
-*You should have already completed the [Your First Schema](../labs/mysql_first_schema.md) lab. The lab shows you how to create tables in MySQL. I also did a walkthrough in class.*
+*You should have already completed the [Your First Schema](../labs/mysql_first_schema.md) lab. The lab shows you how to create tables in MySQL. I also did a walk-through in class.*
 
 ### Start with Metadata 
 

@@ -1,4 +1,4 @@
-# Project: Keys and Constraints 
+# CIS Cousre Schema, Part 2: Keys and Constraints 
 
 In the [CIS Course Schema](cis_classes_schema.md) you gathered information about the CIS department and this semester's classes. In this project you will further the construction of your schema by ensuring it follows relational rules. Remember the eight relational rules are: 
 

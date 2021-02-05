@@ -1,10 +1,10 @@
-# Project: Functional Dependencies 
+# CIS Course Schema, Part 3: Functional Dependencies 
 
 In the previous two projects you've gathered and refined the data on CIS courses taught this semester. In this one you will state the functional dependencies in your data and use them to validate your choice of keys. 
 
 ## Important Attributes 
 
-In your previous projects you collected a bunch of attributes regarding courses, sections and instructors from the catalog and SALSA. You've made choices about what attributes are relevant in your schema. For this project you should have *at least* the attributes listed here. You are free to add as many others as you like: 
+In your previous projects you collected a bunch of attributes regarding courses, sections and instructors from the catalog and directory. You've made choices about what attributes are relevant in your schema. For this project you should have *at least* the attributes listed here. You are free to add as many others as you like: 
 
   1. Instructor Name 
   2. Instructor Title 

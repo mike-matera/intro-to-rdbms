@@ -2,14 +2,6 @@
 
 In this lab you will create a schema and some tables two different ways. MySQL Workbench allows you to do many things with little or no knowledge of SQL. That's very helpful for beginners but, as this class progresses I hope that, like me, you'll learn to crave the power of SQL and not depend on the GUI. In this lab we'll create a schema with two tables and add some data to it.  
 
-## Chapter Questions 
-
-Answer the following questions:
-
-  1. What is a modification problem. Name two types of modification problem. 
-  2. What does SQL stand for? 
-  3. Define the term metadata and give some examples of metadata. 
-
 ## Using the GUI
 
 In this part you will create a new schema. Your new schema name must begin with your login ID. For example: 
@@ -92,7 +84,6 @@ Save your schema in a file called `first_schema_export.sql` and submit your file
 
 ## Turn In
 
-  * The answers to the chapter questions in a file called `chapter_questions`. The file can be any text format (e.g. Word or plain text)
   * Your `first_schema_export.sql` file 
 
 Submit your homework on canvas.
