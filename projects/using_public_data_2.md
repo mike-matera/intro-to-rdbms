@@ -17,7 +17,7 @@ Write two queries that show something interesting in your data. For each query a
 
 ## Export Your Data 
 
-For the final submission export your data from MySQL as an SQL dump file. 
+You can use either MySQL or Jupyter notebook. If you use MySQL export your data as an SQL dump file. If you use Jupyter export the sqlite file. 
 
 ## Turn In 
 
