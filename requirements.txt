@@ -1,5 +1,5 @@
 jupyter
-jupyterlab==1.2.6
+jupyterlab==1.2.21
 flask
 numpy
 pandas
